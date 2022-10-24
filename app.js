@@ -12,13 +12,13 @@ Define: Give properties?
     -It is not language specific
     - Simplified programming language
 6. What percentage of time should be spent thinking about how you're going to solve a problem vs actually typing in code to solve it?
-Depends. Am I crying yet? 
+Depends. 80/20 rule 80% thinking and 20% is the coding part
 */
 
 // STRINGS 
 let firstVariable = 'Hello World!';//1 & 2
 console.log (firstVariable);
-firstVariable = 10;//3
+firstVariable = 1;//3
 console.log(firstVariable);
 let secondVariable = firstVariable;//4
 console.log(secondVariable);
@@ -50,8 +50,22 @@ let animal = 'fox';
 if (animal==='fox') {
     console.log('Ringdingdingdingdingeringeding')
 } else {
-    console.log("Hey! You're not a cow.")
+    console.log("Hey! You're not a fox.")
 };
+
+//Ying's method: Ternary Operator use this method next time: Another way to do an if else statement
+// let animal = "cow";
+// let isCow = animal == "cow" ? "mooo": "Hey! You're not a cow"; 
+// console.log(isCow);
+// animal = "dog"; 
+
+//Ariel's method function: 
+// let animal = "cow";
+
+// const moo = (cow) => {
+//     return cow.toLowerCase () === "cow"? "mooooo" : "Hey, that's not a cow!"
+// }
+// console.log(moo(animal));
 
 //Driver's Ed
 function testAge(age) {
@@ -63,6 +77,14 @@ function testAge(age) {
     }
 }
 testAge(22);
+
+//Ariel's solution as a function
+// let age = 18
+// const driversAge = (age) => {
+//     return age >= 16? "Here are the keys" : "Sorry, you're too young";
+// }
+// console.log(driversAge(age));
+
 
 //LOOPS
 
@@ -80,32 +102,51 @@ for (let i = 12; i < 4001; i+=3) {
     console.log(i);
 };
 
+//Ariel's solution: Funtion
+// const countToTen = () => {
+//     for (let i=1; i<= 10; i ++){
+//         console.log(i)
+//     }
+// }
+// countToTen();
+
 //B. Get Even
 for (let i = 1; i < 101; i++) {
     if (i % 2===0) {
         console.log(i +"<-- is an even number");
     } else {
-        console.log(i)
+        console.log(i);
     }
-};
+}
 
 //Give Me 5
 for (let i=0; i < 101; i++) {
     if (i % 5==0) {
-        console.log("I found a "+ i + ". High Five!")
-    } else if (i % 3==0 || i % 6===0) {
-        (console.log("I found a " + i + ". Three is a crowd"))
+        console.log("I found a "+ i + ". High Five!");
+    } else if (i % 3 ==0) {
+        console.log("I found a " + i + ". Three is a crowd.");
+    } else if (i % 3==0 && i % 5===0) {
+        (console.log("I found a " + i + ". Three is a crowd. High Five!"))
     } else {
       console.log (i)
     }
-    }
-// //Savings Account
+    };
+
+//Savings Account
 let deposit = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]; 
 let bankAccount = 0;
 for (i = 0; i < deposit.length; i++) {
     bankAccount+= deposit[i]
 }
 console.log(bankAccount);
+
+//Tiandre's method: 
+// let totalAccount=[1,2,3,4,5,6,7,8,9,10];
+// bankAccount=0;
+// totalAccount.forEach(element => {
+//   bankAccount+=element
+// });
+// console.log(bankAccount)
 
 //ARRAYS & CONTROL FLOW
 
@@ -122,9 +163,11 @@ console.log(quotes);
 const randomThings = [1, 10, "Hello", true]; 
 
 //1. How do you access the 1st element in the array? The first element in an array is 0. 
+randomThings[0];
 console.log(randomThings[0]);
 //2. Change the value of "hello to "world"
-randomThings.splice(2, "world");
+//randomThings.splice(2, "world");
+randomThings[2] = "world";
 console.log(randomThings);
 
 //D- Change values 
@@ -169,7 +212,8 @@ if (num1 < 100) {
 }
 
 //G - Monkey in the Middle
-let num2 = 7;
+let num2 = 2;
+const bigOrLittleNumber = (num2) => {
 if (num2 < 5) {
     console.log("Little number");
 } else if (num2 > 10) {
@@ -177,6 +221,7 @@ if (num2 < 5) {
 } else {
     console.log("monkey");
 }
+};
 
 //H - What's in your closet? 
 const kristynsCloset = [
@@ -210,12 +255,15 @@ const kristynsCloset = [
     ]
   ];
   //1
-  console.log( "Kristyn is rocking that " + kristynsCloset[2] + " today!")
+  //console.log( "Kristyn is rocking that " + kristynsCloset[2] + " today!")
+  console.log(`She's rocking a ${kristynsCloset[2]} today!`);
   //2 
   kristynsCloset.splice(6,0, "raybans");
   console.log(kristynsCloset);
   //3 
   kristynsCloset.splice(5,1,"Stained knit hat");
+  //Another way
+  //kristynsCloset[5]= "Stained knit hat";
   console.log(kristynsCloset);
   //4
   console.log(thomsCloset[0][0]);
@@ -226,7 +274,7 @@ const kristynsCloset = [
   //7
 console.log("Thom is looking firece in a "  + thomsCloset[0][0] + ", " + thomsCloset[1][1] + ", and " + thomsCloset[2][1] + ".");
 //8 - COME BACK TO THIS. did not work properly
-thomsCloset.slice(([1], 1, "pajamas"))
+thomsCloset[1][2] = "Footie Pajamas"
 console.log(thomsCloset);
   
 //Functions
@@ -242,6 +290,7 @@ const printCool = function (name) {
     console.log(name + " is cool!");
 }
 printCool("Lori")
+
 //C- cube
 function calculateCube(num){
     console.log(num ** 3);
@@ -334,8 +383,8 @@ console.log(maxOfThree(22, 3, 15));
 function printLongestWord(words){
     let longestWord = words[0];
     for(let i = 1; i < words.length; i++){
-        if(words[i].length > longestWord.length) longestWord = words[i];
-    }
+        if(words[i].length > longestWord.length) {longestWord = words[i];
+    }}
     return longestWord;
 }
 console.log(printLongestWord(["BoJack", "Princess", "Diane", "a", "Max", "Peanutbutter", "big", "Todd"]));
@@ -344,7 +393,7 @@ console.log(printLongestWord(["BoJack", "Princess", "Diane", "a", "Max", "Peanut
 
 // //A - Make a user object
 const user = {
-    name: "Lori", 
+    name: "lori", 
     email: "lori@lori.com", 
     age: 12,
     purchased : []
@@ -352,7 +401,7 @@ const user = {
 // //B - Update the user
 user.email = 'labapo@gmail.com';
 console.log(user.email);
-user.age = 35;
+user.age ++;
 
 // //C - Adding keys and values
 user.location = [];
@@ -368,7 +417,7 @@ console.log(user.purchased);
 user.purchased.push("Merino jodhpurs");
 console.log(user.purchased);
 
-// // //E - Object-within-object
+//E - Object-within-object
 user.friend = {
     name: "Aragon", 
     age: 87,
@@ -395,7 +444,20 @@ for (let i = 0; i < user.friend.purchased; i++){
 }
 console.log(user.friend.purchased);
 
-// //G
-// const updateUser (age){
+//G - Functions can operate on objects
+function updateUser() {
+    user.age ++;
+    user.name = user.name.toUpperCase;
+}
 
+//old and loud
+function oldAndLoud (person) {
+    person.age ++;
+    person.name = person.name.toUpperCase;
+}
+// const oldAndLoud = (person) => {
+//     person.age += 1;
+//     person.name = person.name.toUpperCase();
+//     console.log (person);
 // }
+// oldAndLoud(user);
